@@ -15,6 +15,8 @@ export interface Banner {
   mobile: LiveImage;
   /** @description Image's alt text */
   alt: string;
+  /** @description Image's alt text */
+  urlContainer: string;
   action?: {
     /** @description when user clicks on the image, go to this link */
     href: string;
@@ -46,11 +48,12 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
     mobile,
     desktop,
     action,
+    urlContainer,
   } = image;
 
   return (
     <div class="relative h-[600px] min-w-[100vw] overflow-y-hidden">
-      <a href={action?.href ?? "#"} aria-label={action?.label}>
+      <a href={action?.href ?? urlContainer} aria-label={action?.label}>
         <Picture class="w-full" preload={lcp}>
           <Source
             media="(max-width: 767px)"

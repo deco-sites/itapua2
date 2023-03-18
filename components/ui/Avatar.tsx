@@ -31,7 +31,7 @@ const colors = {
   "marrom": "#A52A2A",
   "preta": "#161616",
   "verde-clara": "#90EE90",
-  "vermelha": "#FF0000",
+  "vermelha": "#B71C1C",
 };
 
 type Props =

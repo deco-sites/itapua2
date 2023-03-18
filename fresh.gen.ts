@@ -240,6 +240,11 @@ const manifest: DecoManifest = {
                   "title": "Alt",
                   "description": "Image's alt text",
                 },
+                "urlContainer": {
+                  "type": "string",
+                  "title": "Url Container",
+                  "description": "Image's alt text",
+                },
                 "action": {
                   "title": "Action",
                   "type": "object",
@@ -273,6 +278,7 @@ const manifest: DecoManifest = {
                 "desktop",
                 "mobile",
                 "alt",
+                "urlContainer",
               ],
             },
             "title": "Images",
