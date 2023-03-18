@@ -17,7 +17,6 @@ export interface Banner {
   alt: string;
   /** @description URL Banner */
   urlContainer?: string;
-  
 }
 
 export interface Props {
@@ -43,7 +42,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
 
   return (
     <div class="relative h-[600px] min-w-[100vw] overflow-y-hidden">
-      <a href={urlContainer ? urlContainer : "#"} >
+      <a href={urlContainer ? urlContainer : "#"}>
         <Picture class="w-full" preload={lcp}>
           <Source
             media="(max-width: 767px)"
