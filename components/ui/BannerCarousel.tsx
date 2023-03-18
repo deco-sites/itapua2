@@ -15,18 +15,9 @@ export interface Banner {
   mobile: LiveImage;
   /** @description Image's alt text */
   alt: string;
-  /** @description Image's alt text */
-  urlContainer: string;
-  action?: {
-    /** @description when user clicks on the image, go to this link */
-    href: string;
-    /** @description Image text title */
-    title: string;
-    /** @description Image text subtitle */
-    subTitle: string;
-    /** @description Button label */
-    label: string;
-  };
+  /** @description URL Banner */
+  urlContainer?: string;
+  
 }
 
 export interface Props {
@@ -47,13 +38,12 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
     alt,
     mobile,
     desktop,
-    action,
     urlContainer,
   } = image;
 
   return (
     <div class="relative h-[600px] min-w-[100vw] overflow-y-hidden">
-      <a href={action?.href ?? urlContainer} aria-label={action?.label}>
+      <a href={urlContainer ? urlContainer : "#"} >
         <Picture class="w-full" preload={lcp}>
           <Source
             media="(max-width: 767px)"
@@ -76,20 +66,6 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
             alt={alt}
           />
         </Picture>
-        {action && (
-          <div
-            class="absolute top-0 bottom-0 m-auto left-0 right-0 sm:right-auto sm:left-[12%] max-h-min max-w-[235px] flex flex-col gap-4 bg-hover-inverse p-4 rounded"
-            style={{ backdropFilter: "blur(8px)" }}
-          >
-            <Text variant="heading-1" tone="default-inverse">
-              {action.title}
-            </Text>
-            <Text variant="heading-3" tone="default-inverse">
-              {action.subTitle}
-            </Text>
-            <Button variant="secondary">{action.label}</Button>
-          </div>
-        )}
       </a>
     </div>
   );
